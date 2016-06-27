@@ -28,6 +28,10 @@ public class Axis {
         motor.stop();
     }
 
+    public void waitCompleteMove() {
+        motor.waitComplete();
+    }
+
     public void gotoPos(int pos, int velocity, boolean ignoreComplete) {
         if (velocity > 0) {
             if (pos > size || pos < 0) {

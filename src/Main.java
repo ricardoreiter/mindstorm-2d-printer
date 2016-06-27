@@ -9,10 +9,11 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         //        Printer printer = new Printer(Motor.A, Motor.B, Motor.C, new TouchSensor(SensorPort.S1), new TouchSensor(SensorPort.S2));
         Printer printer = new Printer(new MotorMock("X"), new MotorMock("Y"), new MotorMock("Pen"), new TouchMock(), new TouchMock());
-        printer.drawLine(new Float(10, 10), new Float(20, 20));
+        printer.drawLine(new Float(10, 10), new Float(500, 500));
         printer.drawLine(new Float(20, 20), new Float(25, 20));
         printer.drawLine(new Float(10, 10), new Float(25, 20));
         printer.drawLine(new Float(25, 20), new Float(26, 30));
+        printer.moveTo(new Float(0, 0), false);
         printer.stop();
     }
 

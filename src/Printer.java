@@ -5,8 +5,8 @@ import lejos.robotics.Touch;
 
 public class Printer {
 
-    private static final int X_SIZE = 30;
-    private static final int Y_SIZE = 30;
+    private static final int X_SIZE = 500;
+    private static final int Y_SIZE = 500;
     private static final int X_ROTATION_SIZE = 1000;
     private static final int Y_ROTATION_SIZE = 1000;
     private static final int X_ROTATION_PER_POS = X_ROTATION_SIZE / X_SIZE;
@@ -55,6 +55,13 @@ public class Printer {
         xAxis.gotoPos((int) pos.getX(), xSpeed, true);
         yAxis.gotoPos((int) pos.getY(), ySpeed, false);
         currentPos = pos;
+        xAxis.waitCompleteMove();
+        yAxis.waitCompleteMove();
+    }
+
+    public void moveTo(Point2D pos, boolean penOn) {
+        pen.setActive(penOn);
+        gotoPos(pos);
     }
 
 }
