@@ -3,7 +3,7 @@ import lejos.robotics.Touch;
 
 public class Axis {
 
-    public final static int MAX_VELOCITY = 100;
+    public final static int MAX_VELOCITY = 200;
 
     private final int rotationPerPos;
     private final int size;
@@ -17,15 +17,15 @@ public class Axis {
         this.size = size;
         this.rotationDirection = (byte) rotationDirection;
 
-        motor.setSpeed(MAX_VELOCITY);
-        if (rotationDirection < 0) {
-            motor.forward();
-        } else {
-            motor.backward();
-        }
-
-        while (!endCourseSensor.isPressed()) {}
-        motor.stop();
+//        motor.setSpeed(MAX_VELOCITY);
+//        if (rotationDirection < 0) {
+//            motor.forward();
+//        } else {
+//            motor.backward();
+//        }
+//
+//        while (!endCourseSensor.isPressed()) {}
+//        motor.stop();
     }
 
     public void waitCompleteMove() {

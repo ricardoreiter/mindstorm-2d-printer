@@ -5,10 +5,10 @@ import lejos.robotics.Touch;
 
 public class Printer {
 
-    private static final int X_SIZE = 500;
-    private static final int Y_SIZE = 500;
-    private static final int X_ROTATION_SIZE = 1000;
-    private static final int Y_ROTATION_SIZE = 1000;
+    private static final int X_SIZE = 75;
+    private static final int Y_SIZE = 18;
+    private static final int X_ROTATION_SIZE = 750;
+    private static final int Y_ROTATION_SIZE = 180;
     private static final int X_ROTATION_PER_POS = X_ROTATION_SIZE / X_SIZE;
     private static final int Y_ROTATION_PER_POS = Y_ROTATION_SIZE / Y_SIZE;
 
@@ -18,16 +18,16 @@ public class Printer {
     private Point2D currentPos;
 
     public Printer(RegulatedMotor motorX, RegulatedMotor motorY, RegulatedMotor motorPen, Touch s1, Touch s2) {
-        xAxis = new Axis(motorX, X_SIZE, X_ROTATION_PER_POS, 1, s1);
-        yAxis = new Axis(motorY, Y_SIZE, Y_ROTATION_PER_POS, 1, s2);
+        xAxis = new Axis(motorX, X_SIZE, X_ROTATION_PER_POS, 1, s2);
+        yAxis = new Axis(motorY, Y_SIZE, Y_ROTATION_PER_POS, -1, s1);
         pen = new Pen(motorPen);
         currentPos = new Point2D.Float(0, 0);
     }
 
     public void drawLine(Point2D from, Point2D to) {
         if (!from.equals(currentPos)) {
-            pen.setActive(false);
             gotoPos(from);
+            pen.setActive(false);
         }
         pen.setActive(true);
         gotoPos(to);
