@@ -2,8 +2,8 @@ import lejos.robotics.RegulatedMotor;
 
 public class Pen {
 
-    private static final int ROTATE_SIZE = 40;
-    private static final int ROTATE_SPEED = 50;
+    private static final int ROTATE_SIZE = 110;
+    private static final int ROTATE_SPEED = 300;
 
     private final RegulatedMotor motor;
     private boolean isActive = false;

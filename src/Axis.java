@@ -2,7 +2,7 @@ import lejos.robotics.RegulatedMotor;
 
 public class Axis {
 
-    public final static int MAX_VELOCITY = 200;
+    public final static int MAX_VELOCITY = 300;
 
     private final int rotationPerPos;
     private final int size;

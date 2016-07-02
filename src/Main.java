@@ -1,19 +1,56 @@
 import java.awt.geom.Point2D.Float;
 
 import lejos.nxt.Motor;
-import lejos.nxt.SensorPort;
-import lejos.nxt.TouchSensor;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        Printer printer = new Printer(Motor.A, Motor.B, Motor.C, new TouchSensor(SensorPort.S1), new TouchSensor(SensorPort.S2));
-        printer.drawLine(new Float(10, 10), new Float(50, 10));
-        printer.drawLine(new Float(50, 10), new Float(50, 15));
-        printer.drawLine(new Float(50, 15), new Float(10, 15));
-        printer.drawLine(new Float(10, 15), new Float(10, 10));
-        printer.moveTo(new Float(0, 0), false);
+        Printer printer = new Printer(Motor.A, Motor.B, Motor.C);
+        printer.drawLine(new Float(0, 0), new Float(75, 0));
+        printer.drawLine(new Float(75, 2), new Float(0, 2));
+        printer.drawLine(new Float(0, 4), new Float(75, 4));
+        printer.drawLine(new Float(75, 6), new Float(0, 6));
+        printer.drawLine(new Float(0, 8), new Float(75, 8));
+        printer.drawLine(new Float(75, 10), new Float(0, 10));
+        printer.drawLine(new Float(0, 12), new Float(75, 12));
+        printer.drawLine(new Float(75, 14), new Float(0, 14));
+        printer.drawLine(new Float(0, 16), new Float(75, 16));
+        printer.drawLine(new Float(75, 14), new Float(0, 14));
+        printer.drawLine(new Float(0, 16), new Float(75, 16));
+        printer.drawLine(new Float(75, 14), new Float(0, 14));
+        printer.drawLine(new Float(0, 16), new Float(75, 16));
+        printer.drawLine(new Float(75, 14), new Float(0, 14));
+        printer.drawLine(new Float(0, 16), new Float(75, 16));
         printer.stop();
+//        printer.drawMatrix(new int[][] {
+//        	{1, 1, 0, 1, 1, 0, 1, 1},
+//        	{1, 0, 1, 0, 1, 0, 1, 0},
+//        	{0, 1, 0, 1, 0, 1, 0, 1},
+//        	{1, 1, 0, 1, 1, 0, 1, 1},
+//        	{1, 0, 1, 0, 1, 0, 1, 0},
+//        	{0, 1, 0, 1, 0, 1, 0, 1},
+//        	{1, 1, 0, 1, 1, 0, 1, 1},
+//        	{1, 0, 1, 0, 1, 0, 1, 0},
+//        	{0, 1, 0, 1, 0, 1, 0, 1}
+//        });
+//        printer.drawMatrix(new int[][] {
+//        	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
+//        	{0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},
+//        	{0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},
+//        	{0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0,0,0},
+//        	{0,0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0},
+//        	{0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+//        	{0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},
+//        	{0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,0,0,0,0},
+//        	{0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+//        	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+//        });
     }
 
 }

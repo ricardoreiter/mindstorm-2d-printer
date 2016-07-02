@@ -8,7 +8,7 @@ import lejos.robotics.RegulatedMotor;
 public class Printer {
 
     private static final int X_SIZE = 75;
-    private static final int Y_SIZE = 18;
+    private static final int Y_SIZE = 30;
     private static final int X_ROTATION_SIZE = 750;
     private static final int Y_ROTATION_SIZE = 180;
     private static final int X_ROTATION_PER_POS = X_ROTATION_SIZE / X_SIZE;
@@ -75,17 +75,16 @@ public class Printer {
         for (Line line : lines) {
             drawLine(line.getFrom(), line.getTo());
         }
-        //        stop();
+        stop();
     }
 
     public void drawLine(Point2D from, Point2D to) {
-        System.out.println(String.format("From %s -> To %s", from, to));
-        //        if (!from.equals(currentPos)) {
-        //            gotoPos(from);
-        //            pen.setActive(false);
-        //        }
-        //        pen.setActive(true);
-        //        gotoPos(to);
+        if (!from.equals(currentPos)) {
+        	pen.setActive(false);
+            gotoPos(from);
+        }
+        pen.setActive(true);
+        gotoPos(to);
     }
 
     public void stop() {
@@ -93,13 +92,6 @@ public class Printer {
     }
 
     private void gotoPos(Point2D pos) {
-        int xDiff = (int) (pos.getX() - currentPos.getX());
-        int yDiff = (int) (pos.getY() - currentPos.getY());
-
-        if (xDiff != yDiff && xDiff != 0 && yDiff != 0) {
-            throw new RuntimeException("Desenho na vertical com ângulo diferente de 45º");
-        }
-
         xAxis.gotoPos((int) pos.getX(), true);
         yAxis.gotoPos((int) pos.getY(), false);
         currentPos = pos;
